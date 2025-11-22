@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intrusion Events Map</title>
+    <link rel="stylesheet" href="2D.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.76.0/dist/L.Control.Locate.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.76.0/dist/L.Control.Locate.min.css"
+    />
+    <script src="https://unpkg.com/leaflet-measure@2.1.7/dist/leaflet-measure.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-measure@2.1.7/dist/leaflet-measure.min.css"
+    />
+  </head>
+  <body>
+    <h2>Event Viewer</h2>
+    <div id="container">
+      <div id="sidebar">
+        <h3>Event Filter</h3>
+        <select id="eventDropdown">
+          <option value="">--select event--</option>
+        </select>
+        <div id="animControls"></div>
+
+        <!-- GIS Layers Control -->
+        <div id="gisLayersControl">
+          <div class="control-header">
+            <h4><i class="fas fa-layer-group"></i> GIS Layers</h4>
+          </div>
+          <select id="gisLayers">
+            <option value="">No Additional Layer</option>
+
+            <optgroup label="Administrative" class="opt-admin">
+              <option value="admin">Administrative Boundary</option>
+              <option value="borders">Country Border</option>
+            </optgroup>
+
+            <optgroup label="Infrastructure" class="opt-infra">
+              <option value="airbase">Airport Data</option>
+              <option value="railway">Railway Network</option>
+              <option value="road">Road Network</option>
+              <option value="Highways">National Highways</option>
+              <option value="energy">Energy Plants</option>
+            </optgroup>
+
+            <optgroup label="Hydrology" class="opt-hydro">
+              <option value="hydrology">Waterbody</option>
+              <option value="Lakes">Lakes & Rivers</option>
+            </optgroup>
+
+            <optgroup label="Emergency Services" class="opt-emergency">
+              <option value="police">Police Station</option>
+              <option value="Fire">Fire Station</option>
+            </optgroup>
+
+            <optgroup label="Cultural" class="opt-cultural">
+              <option value="religious">Religious Places</option>
+            </optgroup>
+
+            <optgroup label="Terrain" class="opt-terrain">
+              <option value="lulc">Land Use/Land Cover</option>
+              <option value="contours">Topographic Contours</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <!-- Legend Container -->
+        <div id="legendContainer">
+          <div class="legend-header">
+            <h4><i class="fas fa-map"></i> Layer Legend</h4>
+            <span class="collapse-arrow"
+              ><i class="fas fa-chevron-down"></i>
+            </span>
+          </div>
+          <div class="legend-content">
+            <div id="legendContent"></div>
+          </div>
+        </div>
+
+        <div id="mediaPreview">
+          <h4>Media Preview</h4>
+          <div id="imagePreview" style="margin-bottom: 10px"></div>
+          <div id="videoPreview" style="margin-bottom: 10px"></div>
+          <div id="audioPreview" style="margin-bottom: 10px"></div>
+        </div>
+      </div>
+      <div id="map"></div>
+    </div>
+    <div id="mediaModal" class="media-modal">
+      <div class="media-modal-content">
+        <span class="media-modal-close">&times;</span>
+        <div id="modalMediaContent"></div>
+      </div>
+    </div>
+    <script src="2D.js"></script>
+  </body>
+</html>
